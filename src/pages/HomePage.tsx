@@ -1,11 +1,31 @@
+import Hero from '../components/Hero'
+import MenuPreviewSection from '../components/MenuPreviewSection'
+import EventsPreviewSection from '../components/EventsPreviewSection'
+import ExperienceSection from '../components/ExperienceSection'
+import QuickInfoSection from '../components/QuickInfoSection'
+import ReservationsSection from '../components/ReservationsSection'
+import { usePageMeta } from '../hooks/usePageMeta'
+import { useTranslation } from '../i18n/useTranslation'
+
 function HomePage() {
+  const { t } = useTranslation()
+
+  usePageMeta(`Cays – ${t.hero.eyebrow}`, t.hero.description)
+
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="mb-4 text-4xl font-bold">Welcome to Cays</h1>
-      <p className="text-lg text-gray-600">
-        This is the homepage.
-      </p>
-    </section>
+    <div className="bg-[#f7f3ee] text-neutral-900">
+      <Hero scrollTargetId="category-preview" />
+
+      <MenuPreviewSection />
+
+      <ExperienceSection />
+
+      <EventsPreviewSection />
+
+      <QuickInfoSection />
+
+      <ReservationsSection />
+    </div>
   )
 }
 
