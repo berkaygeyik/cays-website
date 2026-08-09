@@ -91,13 +91,14 @@ function Hero({ scrollTargetId = 'featured-section' }: HeroProps) {
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-[12%_center] md:bg-center"
         style={{
           backgroundImage: `url('${heroImage}')`,
         }}
       />
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.32),rgba(0,0,0,0.38),rgba(0,0,0,0.46))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.42),rgba(0,0,0,0.5),rgba(0,0,0,0.58))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.42),transparent_58%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,214,153,0.10),transparent_42%)]" />
 
       <div className="relative flex min-h-[100svh] items-center justify-center text-center">

@@ -9,6 +9,15 @@ export const translations = {
       specialEvents: 'Special Events',
     },
 
+    common: {
+      formStatus: {
+        sending: 'Sending...',
+        success: "Thanks! Your message has been sent — we'll be in touch soon.",
+        error:
+          'Something went wrong. Please try again, or reach us via WhatsApp or phone.',
+      },
+    },
+
     hero: {
       eyebrow: 'Breakfast • Coffee • Desserts',
       description:
@@ -553,6 +562,16 @@ export const translations = {
       contact: 'Kontakt',
       bookTable: 'Tisch reservieren',
       specialEvents: 'Events',
+    },
+
+    common: {
+      formStatus: {
+        sending: 'Wird gesendet...',
+        success:
+          'Danke! Ihre Nachricht wurde gesendet — wir melden uns in Kürze.',
+        error:
+          'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder erreichen Sie uns per WhatsApp oder Telefon.',
+      },
     },
 
     hero: {

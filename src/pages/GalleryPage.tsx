@@ -153,6 +153,42 @@ function GalleryPage() {
       imageIndex: 20,
       objectPosition: 'object-[center_48%]',
     },
+    {
+      title: {
+        en: 'Our gelato counter',
+        de: 'Unsere Eistheke',
+      },
+      pin: {
+        en: 'Ice Cream',
+        de: 'Eiscreme',
+      },
+      imageIndex: 24,
+      objectPosition: 'object-[center_55%]',
+    },
+    {
+      title: {
+        en: 'Dipped waffle cones',
+        de: 'Getunkte Waffelhörnchen',
+      },
+      pin: {
+        en: 'Ice Cream',
+        de: 'Eiscreme',
+      },
+      imageIndex: 25,
+      objectPosition: 'object-[center_60%]',
+    },
+    {
+      title: {
+        en: 'Fresh cheese board',
+        de: 'Frische Käseplatte',
+      },
+      pin: {
+        en: 'Breakfast',
+        de: 'Frühstück',
+      },
+      imageIndex: 26,
+      objectPosition: 'object-[center_60%]',
+    },
   ]
 
   const getSpanClass = (span: GalleryItem['span']) => {

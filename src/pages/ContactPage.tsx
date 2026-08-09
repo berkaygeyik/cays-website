@@ -1,4 +1,4 @@
-import type { SubmitEvent } from 'react'
+import { useState, type SubmitEvent } from 'react'
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
 import { FiClock, FiMapPin, FiPhone } from 'react-icons/fi'
 import { MdOutlineEmail } from 'react-icons/md'
@@ -6,22 +6,45 @@ import Container from '../components/Container'
 import NazarBoncuguIcon from '../components/NazarBoncuguIcon'
 import { useTranslation } from '../i18n/useTranslation'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { whatsappContactHref } from '../utils/whatsapp'
+import { buildContactMessage } from '../utils/formMessages'
+import { submitToWeb3Forms } from '../utils/web3forms'
+
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
 
 function ContactPage() {
   const { t } = useTranslation()
+  const [status, setStatus] = useState<SubmitStatus>('idle')
 
   usePageMeta(`${t.contactPage.hero.title} | Cays`, t.contactPage.hero.description)
 
-  // TODO: Backend/e-posta ya da WhatsApp entegrasyonu netleşince buraya gerçek
-  // bir gönderim akışı bağlanacak. Şimdilik sadece sayfanın yeniden yüklenip
-  // girilen verilerin kaybolmasını engelliyoruz.
-  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    const form = event.currentTarget
+    const data = new FormData(form)
+    const { subject, fields } = buildContactMessage(data)
+    const replyTo = data.get('email')
+
+    setStatus('sending')
+
+    const success = await submitToWeb3Forms({
+      subject,
+      fields,
+      replyTo: typeof replyTo === 'string' ? replyTo : undefined,
+    })
+
+    if (success) {
+      setStatus('success')
+      form.reset()
+    } else {
+      setStatus('error')
+    }
   }
 
   const contactActions = [
     {
-      href: 'https://wa.me/4976217707722',
+      href: whatsappContactHref,
       label: t.contactPage.actions.whatsapp,
       icon: <FaWhatsapp />,
       external: true,
@@ -56,6 +79,7 @@ function ContactPage() {
       label: t.contactPage.form.fields.firstName.label,
       type: 'text',
       placeholder: t.contactPage.form.fields.firstName.placeholder,
+      required: true,
     },
     {
       id: 'lastName',
@@ -63,6 +87,7 @@ function ContactPage() {
       label: t.contactPage.form.fields.lastName.label,
       type: 'text',
       placeholder: t.contactPage.form.fields.lastName.placeholder,
+      required: false,
     },
     {
       id: 'email',
@@ -70,6 +95,7 @@ function ContactPage() {
       label: t.contactPage.form.fields.email.label,
       type: 'email',
       placeholder: t.contactPage.form.fields.email.placeholder,
+      required: true,
     },
     {
       id: 'subject',
@@ -77,6 +103,7 @@ function ContactPage() {
       label: t.contactPage.form.fields.subject.label,
       type: 'text',
       placeholder: t.contactPage.form.fields.subject.placeholder,
+      required: false,
     },
   ] as const
 
@@ -268,6 +295,12 @@ function ContactPage() {
                     <label key={field.id} htmlFor={field.id} className="block">
                       <span className="mb-2 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.82rem]">
                         {field.label}
+                        {field.required && (
+                          <span className="text-[var(--color-brand-dark)]/50">
+                            {' '}
+                            *
+                          </span>
+                        )}
                       </span>
 
                       <input
@@ -275,6 +308,7 @@ function ContactPage() {
                         name={field.name}
                         type={field.type}
                         placeholder={field.placeholder}
+                        required={field.required}
                         className="w-full rounded-[16px] border border-[#e2d7ca] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[18px]"
                       />
                     </label>
@@ -284,24 +318,41 @@ function ContactPage() {
                 <label htmlFor="message" className="block">
                   <span className="mb-2 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.82rem]">
                     {t.contactPage.form.fields.message.label}
+                    <span className="text-[var(--color-brand-dark)]/50"> *</span>
                   </span>
 
                   <textarea
                     id="message"
                     name="message"
                     rows={6}
+                    required
                     placeholder={t.contactPage.form.fields.message.placeholder}
                     className="w-full resize-none rounded-[18px] border border-[#e2d7ca] bg-[#fcf8f3] px-4 py-4 text-[15px] leading-7 text-[var(--color-text)] outline-none transition focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[22px] md:rows-7"
                   />
                 </label>
 
-                <div className="flex justify-end pt-2">
+                <div className="flex flex-col items-end gap-3 pt-2">
                   <button
                     type="submit"
-                    className="inline-flex min-h-[50px] w-full items-center justify-center rounded-[16px] bg-[var(--color-brand-dark)] px-6 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.09em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[0_16px_30px_rgba(0,0,0,0.12)] sm:w-auto sm:min-w-[180px] sm:text-[0.82rem] sm:tracking-[0.1em]"
+                    disabled={status === 'sending'}
+                    className="inline-flex min-h-[50px] w-full items-center justify-center rounded-[16px] bg-[var(--color-brand-dark)] px-6 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.09em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[0_16px_30px_rgba(0,0,0,0.12)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:min-w-[180px] sm:text-[0.82rem] sm:tracking-[0.1em]"
                   >
-                    {t.contactPage.form.submit}
+                    {status === 'sending'
+                      ? t.common.formStatus.sending
+                      : t.contactPage.form.submit}
                   </button>
+
+                  {status === 'success' && (
+                    <p className="text-[0.86rem] font-medium text-[#2f8f57]">
+                      {t.common.formStatus.success}
+                    </p>
+                  )}
+
+                  {status === 'error' && (
+                    <p className="text-[0.86rem] font-medium text-[#c1473f]">
+                      {t.common.formStatus.error}
+                    </p>
+                  )}
                 </div>
               </form>
             </div>

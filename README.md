@@ -86,11 +86,10 @@ JSON-LD structured data. These currently point at a placeholder domain
 
 ## Known TODOs
 
-- The reservation and contact forms currently only prevent the default page
-  reload on submit — they are not yet wired up to a real backend, email, or
-  WhatsApp integration (see the `TODO` comments in the relevant page files).
-- A few menu images in `src/data/menu.ts` are temporary Unsplash placeholders
-  pending real product photography.
+- The reservation and contact forms submit to [Web3Forms](https://web3forms.com/)
+  (see `src/utils/web3forms.ts`) and deliver by email — no page reload. The
+  WhatsApp quick-contact links (`src/utils/whatsapp.ts`) still need a real
+  business number filled in before launch.
 - `src/pages/ImpressumPage.tsx` has bracketed placeholders for the legal
   operator name, VAT ID, and commercial register — required before the site
   can legally go live in Germany.

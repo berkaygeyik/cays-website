@@ -69,7 +69,7 @@ function MenuCategoryPage() {
 
   return (
     <div className="bg-[#f7f3ee] text-[var(--color-text)]">
-      <section className="pb-24 pt-16 md:pb-28 md:pt-20">
+      <section className="pb-24 pt-28 md:pb-28 md:pt-32">
         <Container>
           <Link
             to="/menu"

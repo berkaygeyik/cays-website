@@ -1,22 +1,45 @@
-import type { SubmitEvent } from 'react'
+import { useState, type SubmitEvent } from 'react'
 import Container from '../components/Container'
 import NazarBoncuguIcon from '../components/NazarBoncuguIcon'
 import { useTranslation } from '../i18n/useTranslation'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { whatsappContactHref } from '../utils/whatsapp'
+import { buildEventReservationMessage } from '../utils/formMessages'
+import { submitToWeb3Forms } from '../utils/web3forms'
+
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
 
 function EventReservationPage() {
   const { t } = useTranslation()
+  const [status, setStatus] = useState<SubmitStatus>('idle')
 
   usePageMeta(
     `${t.eventReservationPage.hero.title} | Cays`,
     t.eventReservationPage.hero.description,
   )
 
-  // TODO: Backend/e-posta ya da WhatsApp entegrasyonu netleşince buraya gerçek
-  // bir gönderim akışı bağlanacak. Şimdilik sadece sayfanın yeniden yüklenip
-  // girilen verilerin kaybolmasını engelliyoruz.
-  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    const form = event.currentTarget
+    const data = new FormData(form)
+    const { subject, fields } = buildEventReservationMessage(data)
+    const replyTo = data.get('email')
+
+    setStatus('sending')
+
+    const success = await submitToWeb3Forms({
+      subject,
+      fields,
+      replyTo: typeof replyTo === 'string' ? replyTo : undefined,
+    })
+
+    if (success) {
+      setStatus('success')
+      form.reset()
+    } else {
+      setStatus('error')
+    }
   }
 
   const heroTags = [
@@ -110,6 +133,10 @@ function EventReservationPage() {
                     <label className="block" htmlFor="fullName">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.fullName.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="fullName"
@@ -119,6 +146,7 @@ function EventReservationPage() {
                           t.eventReservationPage.form.fields.fullName
                             .placeholder
                         }
+                        required
                         className="w-full rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       />
                     </label>
@@ -126,6 +154,10 @@ function EventReservationPage() {
                     <label className="block" htmlFor="email">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.email.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="email"
@@ -134,6 +166,7 @@ function EventReservationPage() {
                         placeholder={
                           t.eventReservationPage.form.fields.email.placeholder
                         }
+                        required
                         className="w-full rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       />
                     </label>
@@ -143,6 +176,10 @@ function EventReservationPage() {
                     <label className="block" htmlFor="phone">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.phone.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="phone"
@@ -151,6 +188,7 @@ function EventReservationPage() {
                         placeholder={
                           t.eventReservationPage.form.fields.phone.placeholder
                         }
+                        required
                         className="w-full rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       />
                     </label>
@@ -158,11 +196,16 @@ function EventReservationPage() {
                     <label className="block" htmlFor="eventType">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.eventType.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <select
                         id="eventType"
                         name="eventType"
                         defaultValue=""
+                        required
                         className="w-full appearance-none rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       >
                         <option value="" disabled>
@@ -185,11 +228,16 @@ function EventReservationPage() {
                     <label className="block" htmlFor="preferredDate">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.preferredDate.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="preferredDate"
                         name="preferredDate"
                         type="date"
+                        required
                         className="w-full rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       />
                     </label>
@@ -197,11 +245,16 @@ function EventReservationPage() {
                     <label className="block" htmlFor="preferredTime">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.preferredTime.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="preferredTime"
                         name="preferredTime"
                         type="time"
+                        required
                         className="w-full rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       />
                     </label>
@@ -209,6 +262,10 @@ function EventReservationPage() {
                     <label className="block" htmlFor="guestCount">
                       <span className="mb-2.5 block text-[0.8rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72">
                         {t.eventReservationPage.form.fields.guestCount.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="guestCount"
@@ -219,6 +276,7 @@ function EventReservationPage() {
                           t.eventReservationPage.form.fields.guestCount
                             .placeholder
                         }
+                        required
                         className="w-full rounded-[16px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45"
                       />
                     </label>
@@ -255,13 +313,28 @@ function EventReservationPage() {
                     />
                   </label>
 
-                  <div className="flex justify-end pt-3">
+                  <div className="flex flex-col items-end gap-3 pt-3">
                     <button
                       type="submit"
-                      className="inline-flex min-w-[185px] items-center justify-center rounded-[15px] bg-[var(--color-brand-dark)] px-6 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-white shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[0_14px_26px_rgba(0,0,0,0.11)]"
+                      disabled={status === 'sending'}
+                      className="inline-flex min-w-[185px] items-center justify-center rounded-[15px] bg-[var(--color-brand-dark)] px-6 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-white shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[0_14px_26px_rgba(0,0,0,0.11)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                     >
-                      {t.eventReservationPage.form.submit}
+                      {status === 'sending'
+                        ? t.common.formStatus.sending
+                        : t.eventReservationPage.form.submit}
                     </button>
+
+                    {status === 'success' && (
+                      <p className="text-[0.86rem] font-medium text-[#2f8f57]">
+                        {t.common.formStatus.success}
+                      </p>
+                    )}
+
+                    {status === 'error' && (
+                      <p className="text-[0.86rem] font-medium text-[#c1473f]">
+                        {t.common.formStatus.error}
+                      </p>
+                    )}
                   </div>
                 </form>
               </div>
@@ -299,7 +372,7 @@ function EventReservationPage() {
 
                   <div className="mt-5 space-y-3">
                     <a
-                      href="https://wa.me/4976217707722"
+                      href={whatsappContactHref}
                       target="_blank"
                       rel="noreferrer"
                       className="group flex items-center justify-between rounded-[18px] border border-[#ddd0bf] bg-white/72 px-4 py-3 transition-all duration-300 hover:border-[#d2bea6] hover:bg-white"

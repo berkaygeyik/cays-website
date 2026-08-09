@@ -1,57 +1,39 @@
 import type { MenuSection } from '../types/menu'
 
-// TODO: Aşağıdaki images.unsplash.com görselleri geçici yer tutuculardır.
-// Gerçek ürün fotoğrafları çekildiğinde tamamı yerel/kendi görsellerimizle
-// değiştirilecek (bkz. public/images/menu). Unsplash lisansı/erişilebilirliği
-// üretim sitesi için garanti değildir.
+// NOT: Bazı kategorilerdeki görseller self-hosted, Unsplash lisanslı
+// stok fotoğraflardır (gerçek Cays fotoğrafları değil) — kalıcı
+// kullanım için onaylanmıştır (bkz. public/images/menu).
 const breakfastImage = '/images/menu/breakfast.webp'
-const breakfastImage2 = '/images/menu/turkish-breakfast.webp'
-const breakfastImage3 =
-  'https://images.unsplash.com/photo-1493770348161-369560ae357d?q=80&w=1400&auto=format&fit=crop'
+const breakfastImage2 = '/images/menu/breakfast-condiments-spread.jpg'
+const breakfastImage3 = '/images/menu/breakfast-turkish-spread-2.jpg'
 
-const pfannenImage =
-  'https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1400&auto=format&fit=crop'
-const pfannenImage2 =
-  'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?q=80&w=1400&auto=format&fit=crop'
-const pfannenImage3 =
-  'https://images.unsplash.com/photo-1510693206972-df098062cb71?q=80&w=1400&auto=format&fit=crop'
+const pfannenImage = '/images/menu/pfannen-sucuk-egg.jpg'
+const pfannenImage2 = '/images/menu/pfannen-baked-eggs-feta.jpg'
+const pfannenImage3 = '/images/menu/pfannen-menemen-sucuk-plate.jpg'
 
-const toastImage =
-  'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=1400&auto=format&fit=crop'
-const toastImage2 =
-  'https://images.unsplash.com/photo-1553909489-cd47e0907980?q=80&w=1400&auto=format&fit=crop'
-const toastImage3 =
-  'https://images.unsplash.com/photo-1481070555726-e2fe8357725c?q=80&w=1400&auto=format&fit=crop'
+const toastImage = '/images/menu/toast-sucuk-cheese-bowl.jpg'
+const toastImage2 = '/images/menu/toast-plate.jpg'
+const toastImage3 = '/images/menu/toast-cheese-pull.jpg'
 
 const waffleImage = '/images/menu/waffles.webp'
-const waffleImage2 =
-  'https://images.unsplash.com/photo-1513442542250-854d436a73f2?q=80&w=1400&auto=format&fit=crop'
-const waffleImage3 =
-  'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?q=80&w=1400&auto=format&fit=crop'
+const waffleImage2 = '/images/menu/waffle-strawberry-chocolate.webp'
+const waffleImage3 = '/images/menu/waffle-nutella-blueberry.webp'
 
 const cakeImage = '/images/menu/cakes.webp'
-const cakeImage2 =
-  'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=1400&auto=format&fit=crop'
-const cakeImage3 =
-  'https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1400&auto=format&fit=crop'
+const cakeImage2 = '/images/menu/cake-cherry-pie-coffee.jpg'
+const cakeImage3 = '/images/menu/cake-croissant-close-up.jpg'
 
-const hotDrinksImage = '/images/menu/hot-drinks.webp'
-const hotDrinksImage2 = '/images/contact/contact-coffee.webp'
-const hotDrinksImage3 =
-  'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400&auto=format&fit=crop'
+const hotDrinksImage = '/images/menu/hot-drinks-turkish-coffee.jpg'
+const hotDrinksImage2 = '/images/menu/hot-drinks-cappuccino.jpg'
+const hotDrinksImage3 = '/images/menu/hot-drinks.webp'
 
-const coldDrinksImage = '/images/menu/cold-drinks.webp'
-const coldDrinksImage2 =
-  'https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1400&auto=format&fit=crop'
-const coldDrinksImage3 =
-  'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1400&auto=format&fit=crop'
+const coldDrinksImage = '/images/menu/cold-drinks-iced-tea-lemon-mint.jpg'
+const coldDrinksImage2 = '/images/menu/cold-drinks-iced-coffee.jpg'
+const coldDrinksImage3 = '/images/menu/cold-drinks-orange-juice.jpg'
 
-const alcoholImage =
-  'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1400&auto=format&fit=crop'
-const alcoholImage2 =
-  'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1400&auto=format&fit=crop'
-const alcoholImage3 =
-  'https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1400&auto=format&fit=crop'
+const alcoholImage = '/images/menu/alcohol-cocktail-1.webp'
+const alcoholImage2 = '/images/menu/alcohol-beer-glass-indoor.jpg'
+const alcoholImage3 = '/images/menu/alcohol-red-wine-pour.jpg'
 
 export const menuData: MenuSection[] = [
   {

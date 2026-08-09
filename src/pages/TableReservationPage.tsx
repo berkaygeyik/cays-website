@@ -1,11 +1,17 @@
-import type { SubmitEvent } from 'react'
+import { useState, type SubmitEvent } from 'react'
 import Container from '../components/Container'
 import NazarBoncuguIcon from '../components/NazarBoncuguIcon'
 import { useTranslation } from '../i18n/useTranslation'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { whatsappContactHref } from '../utils/whatsapp'
+import { buildTableReservationMessage } from '../utils/formMessages'
+import { submitToWeb3Forms } from '../utils/web3forms'
+
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
 
 function TableReservationPage() {
   const { t } = useTranslation()
+  const [status, setStatus] = useState<SubmitStatus>('idle')
 
   usePageMeta(
     `${t.tableReservationPage.hero.title} | Cays`,
@@ -20,11 +26,28 @@ function TableReservationPage() {
 
   const guestOptions = ['1–2', '3–4', '5–6', '7–8', '9+']
 
-  // TODO: Backend/e-posta ya da WhatsApp entegrasyonu netleşince buraya gerçek
-  // bir gönderim akışı bağlanacak. Şimdilik sadece sayfanın yeniden yüklenip
-  // girilen verilerin kaybolmasını engelliyoruz.
-  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    const form = event.currentTarget
+    const data = new FormData(form)
+    const { subject, fields } = buildTableReservationMessage(data)
+    const replyTo = data.get('email')
+
+    setStatus('sending')
+
+    const success = await submitToWeb3Forms({
+      subject,
+      fields,
+      replyTo: typeof replyTo === 'string' ? replyTo : undefined,
+    })
+
+    if (success) {
+      setStatus('success')
+      form.reset()
+    } else {
+      setStatus('error')
+    }
   }
 
   return (
@@ -89,6 +112,10 @@ function TableReservationPage() {
                     <label className="block" htmlFor="firstName">
                       <span className="mb-2.5 block text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.8rem]">
                         {t.tableReservationPage.form.fields.firstName.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="firstName"
@@ -98,6 +125,7 @@ function TableReservationPage() {
                           t.tableReservationPage.form.fields.firstName
                             .placeholder
                         }
+                        required
                         className="w-full rounded-[15px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[16px]"
                       />
                     </label>
@@ -123,6 +151,10 @@ function TableReservationPage() {
                     <label className="block" htmlFor="email">
                       <span className="mb-2.5 block text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.8rem]">
                         {t.tableReservationPage.form.fields.email.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="email"
@@ -131,6 +163,7 @@ function TableReservationPage() {
                         placeholder={
                           t.tableReservationPage.form.fields.email.placeholder
                         }
+                        required
                         className="w-full rounded-[15px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[16px]"
                       />
                     </label>
@@ -138,6 +171,10 @@ function TableReservationPage() {
                     <label className="block" htmlFor="phone">
                       <span className="mb-2.5 block text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.8rem]">
                         {t.tableReservationPage.form.fields.phone.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="phone"
@@ -146,6 +183,7 @@ function TableReservationPage() {
                         placeholder={
                           t.tableReservationPage.form.fields.phone.placeholder
                         }
+                        required
                         className="w-full rounded-[15px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-black/34 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[16px]"
                       />
                     </label>
@@ -155,11 +193,16 @@ function TableReservationPage() {
                     <label className="block" htmlFor="date">
                       <span className="mb-2.5 block text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.8rem]">
                         {t.tableReservationPage.form.fields.date.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="date"
                         name="date"
                         type="date"
+                        required
                         className="w-full rounded-[15px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[16px]"
                       />
                     </label>
@@ -167,11 +210,16 @@ function TableReservationPage() {
                     <label className="block" htmlFor="time">
                       <span className="mb-2.5 block text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.8rem]">
                         {t.tableReservationPage.form.fields.time.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <input
                         id="time"
                         name="time"
                         type="time"
+                        required
                         className="w-full rounded-[15px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[16px]"
                       />
                     </label>
@@ -179,11 +227,16 @@ function TableReservationPage() {
                     <label className="block" htmlFor="guests">
                       <span className="mb-2.5 block text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--color-text)]/72 sm:text-[0.8rem]">
                         {t.tableReservationPage.form.fields.guests.label}
+                        <span className="text-[var(--color-brand-dark)]/50">
+                          {' '}
+                          *
+                        </span>
                       </span>
                       <select
                         id="guests"
                         name="guests"
                         defaultValue=""
+                        required
                         className="w-full appearance-none rounded-[15px] border border-[#e4d9cc] bg-[#fcf8f3] px-4 py-3.5 text-[15px] text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-brand-dark)]/35 focus:bg-white focus:ring-2 focus:ring-[var(--color-accent-blue)]/45 sm:rounded-[16px]"
                       >
                         <option value="" disabled>
@@ -214,13 +267,28 @@ function TableReservationPage() {
                     />
                   </label>
 
-                  <div className="flex justify-end pt-3">
+                  <div className="flex flex-col items-end gap-3 pt-3">
                     <button
                       type="submit"
-                      className="inline-flex min-h-[50px] w-full items-center justify-center rounded-[15px] bg-[var(--color-brand-dark)] px-6 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[0_14px_26px_rgba(0,0,0,0.11)] sm:w-auto sm:min-w-[185px] sm:text-[0.8rem]"
+                      disabled={status === 'sending'}
+                      className="inline-flex min-h-[50px] w-full items-center justify-center rounded-[15px] bg-[var(--color-brand-dark)] px-6 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[0_14px_26px_rgba(0,0,0,0.11)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:min-w-[185px] sm:text-[0.8rem]"
                     >
-                      {t.tableReservationPage.form.submit}
+                      {status === 'sending'
+                        ? t.common.formStatus.sending
+                        : t.tableReservationPage.form.submit}
                     </button>
+
+                    {status === 'success' && (
+                      <p className="text-[0.86rem] font-medium text-[#2f8f57]">
+                        {t.common.formStatus.success}
+                      </p>
+                    )}
+
+                    {status === 'error' && (
+                      <p className="text-[0.86rem] font-medium text-[#c1473f]">
+                        {t.common.formStatus.error}
+                      </p>
+                    )}
                   </div>
                 </form>
               </div>
@@ -253,7 +321,7 @@ function TableReservationPage() {
 
                   <div className="mt-5 space-y-3">
                     <a
-                      href="https://wa.me/4976217707722"
+                      href={whatsappContactHref}
                       target="_blank"
                       rel="noreferrer"
                       className="group flex items-center justify-between rounded-[16px] border border-[#ddd0bf] bg-white/72 px-4 py-3 transition-all duration-300 hover:border-[#d2bea6] hover:bg-white sm:rounded-[18px]"
