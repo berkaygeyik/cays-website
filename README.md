@@ -69,8 +69,6 @@ public/images/  # served as-is, referenced by plain string paths
 public/robots.txt, public/sitemap.xml  # SEO
 ```
 
-See [CLAUDE.md](./CLAUDE.md) for a more detailed architecture write-up.
-
 ## i18n
 
 Language is stored in `src/i18n/translations.ts` (one object per language) and

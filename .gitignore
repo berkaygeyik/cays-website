@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude Code local (machine/session-specific) settings
-.claude/settings.local.json
+# Claude Code config (kept locally only, not tracked in this repo)
+.claude/
+CLAUDE.md
