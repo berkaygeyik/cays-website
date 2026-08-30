@@ -25,9 +25,6 @@ function QuickInfoSection() {
   const linkClassName =
     'inline-block text-[0.95rem] font-semibold leading-6 text-neutral-900 transition-colors duration-200 hover:text-[#2f2a72] sm:text-[0.98rem]'
 
-  const softLinkClassName =
-    'inline-block text-[0.95rem] font-medium leading-6 text-neutral-900 transition-colors duration-200 hover:text-[#2f2a72] sm:text-[0.98rem]'
-
   const splitBodyClassName = 'mt-5 flex flex-1 flex-col'
   const topHalfClassName =
     'flex min-h-[6.5rem] flex-none flex-col justify-start pb-4'
@@ -152,29 +149,13 @@ function QuickInfoSection() {
               <div className={topHalfClassName}>
                 <div>
                   <p className={sectionLabelClassName}>
-                    {t.quickInfo.contact.phoneLabel}
-                  </p>
-                  <a
-                    href="tel:+4976217707722"
-                    className={`mt-2 ${linkClassName}`}
-                  >
-                    {t.quickInfo.contact.phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className={separatorClassName} />
-
-              <div className={bottomHalfClassName}>
-                <div>
-                  <p className={sectionLabelClassName}>
                     {t.quickInfo.contact.instagramLabel}
                   </p>
                   <a
                     href="https://www.instagram.com/c_a_y_s_/"
                     target="_blank"
                     rel="noreferrer"
-                    className={`mt-2 ${softLinkClassName}`}
+                    className={`mt-2 ${linkClassName}`}
                   >
                     {t.quickInfo.contact.instagram}
                   </a>

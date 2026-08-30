@@ -1,6 +1,6 @@
 import { useState, type SubmitEvent } from 'react'
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
-import { FiClock, FiMapPin, FiPhone } from 'react-icons/fi'
+import { FiClock, FiMapPin } from 'react-icons/fi'
 import { MdOutlineEmail } from 'react-icons/md'
 import Container from '../components/Container'
 import NazarBoncuguIcon from '../components/NazarBoncuguIcon'
@@ -176,25 +176,10 @@ function ContactPage() {
     },
     {
       title: t.contactPage.info.contact.title,
-      icon: <FiPhone />,
+      icon: <FaInstagram />,
       content: (
         <div className="space-y-4">
           <div className="min-h-[6.5rem]">
-            <p className="text-[0.64rem] font-bold uppercase tracking-wider text-black/40 sm:text-[0.68rem]">
-              {t.contactPage.info.contact.phoneLabel}
-            </p>
-
-            <a
-              href="tel:+4976217707722"
-              className="mt-1.5 block text-[0.98rem] font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-brand-dark)] sm:text-[1.02rem]"
-            >
-              +49 7621 7707722
-            </a>
-          </div>
-
-          <div className="h-px w-full bg-[#efe6db]" />
-
-          <div>
             <p className="text-[0.64rem] font-bold uppercase tracking-wider text-black/40 sm:text-[0.68rem]">
               {t.contactPage.info.contact.instagramLabel}
             </p>

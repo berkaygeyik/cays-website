@@ -14,7 +14,7 @@ export const translations = {
         sending: 'Sending...',
         success: "Thanks! Your message has been sent — we'll be in touch soon.",
         error:
-          'Something went wrong. Please try again, or reach us via WhatsApp or phone.',
+          'Something went wrong. Please try again, or reach us via WhatsApp.',
       },
     },
 
@@ -212,7 +212,6 @@ export const translations = {
         },
         contact: {
           title: 'Contact Details',
-          phoneLabel: 'Telephone',
           instagramLabel: 'Instagram',
         },
       },
@@ -360,7 +359,7 @@ export const translations = {
           first:
             'Reservations are confirmed manually based on availability.',
           second:
-            'For urgent same-day requests, WhatsApp or phone is the fastest way to reach us.',
+            'For urgent same-day requests, WhatsApp is the fastest way to reach us.',
         },
         directContact: {
           title: 'Direct contact',
@@ -456,7 +455,7 @@ export const translations = {
 
       reservations: {
         title: 'Reservations',
-        main: 'DM or phone',
+        main: 'Message us',
         description: 'Reserve your table directly',
         noteLabel: 'Good to know',
         note: 'Reservations are recommended on weekends.',
@@ -464,8 +463,6 @@ export const translations = {
 
       contact: {
         title: 'Contact',
-        phoneLabel: 'Phone',
-        phone: '+49 7621 7707722',
         instagramLabel: 'Instagram',
         instagram: '@c_a_y_s_',
       },
@@ -537,6 +534,7 @@ export const translations = {
       addressLabel: 'Address',
       contactHeading: 'Contact',
       phoneLabel: 'Phone',
+      phonePlaceholder: '[To be completed]',
       emailLabel: 'Email',
       vatLabel: 'VAT ID (§ 27a UStG)',
       vatPlaceholder: '[If applicable – to be completed]',
@@ -570,7 +568,7 @@ export const translations = {
         success:
           'Danke! Ihre Nachricht wurde gesendet — wir melden uns in Kürze.',
         error:
-          'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder erreichen Sie uns per WhatsApp oder Telefon.',
+          'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder erreichen Sie uns per WhatsApp.',
       },
     },
 
@@ -768,7 +766,6 @@ export const translations = {
         },
         contact: {
           title: 'Kontaktdaten',
-          phoneLabel: 'Telefon',
           instagramLabel: 'Instagram',
         },
       },
@@ -916,7 +913,7 @@ export const translations = {
           first:
             'Reservierungen werden je nach Verfügbarkeit manuell bestätigt.',
           second:
-            'Für kurzfristige Anfragen am selben Tag erreichen Sie uns am schnellsten per WhatsApp oder Telefon.',
+            'Für kurzfristige Anfragen am selben Tag erreichen Sie uns am schnellsten per WhatsApp.',
         },
         directContact: {
           title: 'Direkter Kontakt',
@@ -1012,7 +1009,7 @@ export const translations = {
 
       reservations: {
         title: 'Reservierungen',
-        main: 'DM oder Telefon',
+        main: 'Per Nachricht',
         description: 'Reservieren Sie Ihren Tisch direkt',
         noteLabel: 'Gut zu wissen',
         note: 'Reservierungen werden am Wochenende empfohlen.',
@@ -1020,8 +1017,6 @@ export const translations = {
 
       contact: {
         title: 'Kontakt',
-        phoneLabel: 'Telefon',
-        phone: '+49 7621 7707722',
         instagramLabel: 'Instagram',
         instagram: '@c_a_y_s_',
       },
@@ -1093,6 +1088,7 @@ export const translations = {
       addressLabel: 'Anschrift',
       contactHeading: 'Kontakt',
       phoneLabel: 'Telefon',
+      phonePlaceholder: '[bitte ergänzen]',
       emailLabel: 'E-Mail',
       vatLabel: 'Umsatzsteuer-ID (§ 27a UStG)',
       vatPlaceholder: '[falls vorhanden – bitte ergänzen]',
