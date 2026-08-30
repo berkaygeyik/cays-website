@@ -65,6 +65,13 @@ function Footer() {
 
             <div className="text-sm leading-7 text-[var(--color-text-on-dark-soft)]">
               <a
+                href="tel:+4976217707722"
+                className="block transition-colors duration-200 hover:text-[var(--color-text-on-dark)]"
+              >
+                +49 7621 7707722
+              </a>
+
+              <a
                 href="https://www.instagram.com/c_a_y_s_/"
                 target="_blank"
                 rel="noreferrer"

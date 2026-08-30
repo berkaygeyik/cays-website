@@ -384,6 +384,18 @@ function EventReservationPage() {
                         →
                       </span>
                     </a>
+
+                    <a
+                      href="tel:+4976217707722"
+                      className="group flex items-center justify-between rounded-[18px] border border-[#ddd0bf] bg-white/72 px-4 py-3 transition-all duration-300 hover:border-[#d2bea6] hover:bg-white"
+                    >
+                      <span className="text-[0.95rem] font-semibold text-[var(--color-text)]">
+                        +49 7621 7707722
+                      </span>
+                      <span className="text-[1rem] text-[var(--color-brand-dark)] transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </a>
                   </div>
                 </article>
               </aside>

@@ -55,7 +55,7 @@ function ImpressumPage() {
                 </h2>
 
                 <p className="mt-3">
-                  {t.impressumPage.phoneLabel}: {t.impressumPage.phonePlaceholder}
+                  {t.impressumPage.phoneLabel}: +49 7621 7707722
                   <br />
                   {t.impressumPage.emailLabel}: hello@cays-cafe.com
                 </p>
