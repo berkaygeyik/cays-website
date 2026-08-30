@@ -268,6 +268,8 @@ function GalleryPage() {
                     <img
                       src={imageSrc}
                       alt={itemTitle}
+                      loading="lazy"
+                      decoding="async"
                       className={`h-full w-full object-cover ${
                         item.objectPosition ?? 'object-center'
                       } transition-transform duration-700 group-hover:scale-[1.04]`}

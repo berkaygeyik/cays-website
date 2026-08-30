@@ -160,6 +160,8 @@ function MenuCategoryPage() {
                         <img
                           src={image}
                           alt={`${section.category[language]} ${index + 2}`}
+                          loading="lazy"
+                          decoding="async"
                           className="h-[220px] w-full object-cover transition-transform duration-700 hover:scale-[1.02] xl:h-[240px]"
                         />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.08))]" />

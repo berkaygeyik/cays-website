@@ -62,6 +62,8 @@ function ExperienceSection() {
               <img
                 src={siteImages.home.experience}
                 alt={t.experience.imageAlt}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover object-[center_58%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,13,0.03),rgba(24,18,13,0.18))]" />

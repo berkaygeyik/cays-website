@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from './Container'
 import logo from '../assets/cays-logo-cleaned.png'
-import heroImage from '../assets/hero.png'
+import heroImage from '../assets/hero.webp'
 import { useTranslation } from '../i18n/useTranslation'
 
 interface HeroProps {

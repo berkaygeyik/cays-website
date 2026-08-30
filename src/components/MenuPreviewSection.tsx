@@ -85,6 +85,8 @@ function MenuPreviewSection() {
                 <img
                   src={siteImages.menu.breakfast}
                   alt={t.menuPreview.imageLabels.breakfastMoments}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_42%)]" />
@@ -98,6 +100,8 @@ function MenuPreviewSection() {
                 <img
                   src={siteImages.menu.cakes}
                   alt={t.menuPreview.imageLabels.sweetCravings}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_40%)]" />
@@ -112,6 +116,8 @@ function MenuPreviewSection() {
               <img
                 src={siteImages.menu.coldDrinks}
                 alt={t.menuPreview.imageLabels.drinksMore}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10),transparent_48%)]" />

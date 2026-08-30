@@ -19,6 +19,8 @@ function MenuCategoryCard({ section }: MenuCategoryCardProps) {
           <img
             src={section.image}
             alt={section.category[language]}
+            loading="lazy"
+            decoding="async"
             className="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
           />
 

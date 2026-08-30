@@ -6,7 +6,7 @@ import { useTranslation } from '../i18n/useTranslation'
 import { usePageMeta } from '../hooks/usePageMeta'
 import caysLogoWhite from '../assets/cays-logo-white.png'
 
-const menuHeroImage = '/images/menu/menu-desserts-banner.png'
+const menuHeroImage = '/images/menu/menu-desserts-banner.webp'
 
 function MenuPage() {
   const { t } = useTranslation()
