@@ -21,7 +21,7 @@ export const translations = {
     hero: {
       eyebrow: 'Breakfast • Coffee • Desserts',
       description:
-        'A cozy spot for breakfast, coffee, ice cream and sweet moments by the water.',
+        'A cozy spot for breakfast, coffee, ice cream and sweet moments.',
       exploreMenu: 'Explore Menu',
       bookTable: 'Book a Table',
       discoverMore: 'Discover More',
@@ -577,7 +577,7 @@ export const translations = {
     hero: {
       eyebrow: 'Frühstück • Kaffee • Desserts',
       description:
-        'Ein gemütlicher Ort für Frühstück, Kaffee, Eis und süße Momente am Wasser.',
+        'Ein gemütlicher Ort für Frühstück, Kaffee, Eis und süße Momente.',
       exploreMenu: 'Speisekarte ansehen',
       bookTable: 'Tisch reservieren',
       discoverMore: 'Mehr entdecken',
