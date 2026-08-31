@@ -50,9 +50,9 @@ export const translations = {
         'Coffee, tea and refreshing cold drinks made for long catch-ups and easy afternoons.',
       categories: {
         breakfast: 'Breakfast',
+        pans: 'Pans',
         waffles: 'Waffles',
         cakes: 'Cakes',
-        iceCream: 'Ice Cream',
         hotDrinks: 'Hot Drinks',
         coldDrinks: 'Cold Drinks',
       },
@@ -606,9 +606,9 @@ export const translations = {
         'Kaffee, Tee und erfrischende kalte Getränke für lange Gespräche und entspannte Nachmittage.',
       categories: {
         breakfast: 'Frühstück',
+        pans: 'Pfannen',
         waffles: 'Waffeln',
         cakes: 'Kuchen',
-        iceCream: 'Eis',
         hotDrinks: 'Heißgetränke',
         coldDrinks: 'Kaltgetränke',
       },

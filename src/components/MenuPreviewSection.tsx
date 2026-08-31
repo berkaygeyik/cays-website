@@ -10,9 +10,9 @@ function MenuPreviewSection() {
 
   const quickHighlights = [
     t.menuPreview.categories.breakfast,
+    t.menuPreview.categories.pans,
     t.menuPreview.categories.waffles,
     t.menuPreview.categories.cakes,
-    t.menuPreview.categories.iceCream,
     t.menuPreview.categories.hotDrinks,
     t.menuPreview.categories.coldDrinks,
   ]
