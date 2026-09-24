@@ -66,7 +66,6 @@ export const siteImages = {
     '/images/gallery/gallery-21.webp',
     '/images/gallery/gallery-22.webp',
     '/images/gallery/gallery-23.webp',
-    '/images/gallery/gallery-24.jpg',
     '/images/gallery/gallery-25.jpg',
     '/images/gallery/gallery-26.jpg',
     '/images/gallery/gallery-27.jpg',

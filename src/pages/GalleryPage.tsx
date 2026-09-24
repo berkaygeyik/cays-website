@@ -162,7 +162,7 @@ function GalleryPage() {
         en: 'Ice Cream',
         de: 'Eiscreme',
       },
-      imageIndex: 24,
+      imageIndex: 23,
       objectPosition: 'object-[center_55%]',
     },
     {
@@ -174,7 +174,7 @@ function GalleryPage() {
         en: 'Ice Cream',
         de: 'Eiscreme',
       },
-      imageIndex: 25,
+      imageIndex: 24,
       objectPosition: 'object-[center_60%]',
     },
     {
@@ -186,7 +186,7 @@ function GalleryPage() {
         en: 'Breakfast',
         de: 'Frühstück',
       },
-      imageIndex: 26,
+      imageIndex: 25,
       objectPosition: 'object-[center_60%]',
     },
   ]
