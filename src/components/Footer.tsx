@@ -95,12 +95,21 @@ function Footer() {
             {t.footer.tagline}
           </p>
 
-          <Link
-            to="/impressum"
-            className="text-[var(--color-text-on-dark-soft)] transition-colors duration-200 hover:text-[var(--color-text-on-dark)]"
-          >
-            {t.impressumPage.title}
-          </Link>
+          <div className="flex gap-5">
+            <Link
+              to="/impressum"
+              className="text-[var(--color-text-on-dark-soft)] transition-colors duration-200 hover:text-[var(--color-text-on-dark)]"
+            >
+              {t.impressumPage.title}
+            </Link>
+
+            <Link
+              to="/datenschutz"
+              className="text-[var(--color-text-on-dark-soft)] transition-colors duration-200 hover:text-[var(--color-text-on-dark)]"
+            >
+              {t.privacyPage.title}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -15,6 +15,7 @@ const EventReservationPage = lazy(
   () => import('../pages/EventReservationPage'),
 )
 const ImpressumPage = lazy(() => import('../pages/ImpressumPage'))
+const PrivacyPage = lazy(() => import('../pages/PrivacyPage'))
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'))
 
 function AppRouter() {
@@ -30,6 +31,7 @@ function AppRouter() {
         <Route path="reservations/table" element={<TableReservationPage />} />
         <Route path="reservations/events" element={<EventReservationPage />} />
         <Route path="impressum" element={<ImpressumPage />} />
+        <Route path="datenschutz" element={<PrivacyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

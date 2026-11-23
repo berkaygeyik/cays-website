@@ -3,7 +3,6 @@ import Container from '../components/Container'
 import NazarBoncuguIcon from '../components/NazarBoncuguIcon'
 import { useTranslation } from '../i18n/useTranslation'
 import { usePageMeta } from '../hooks/usePageMeta'
-import { whatsappContactHref } from '../utils/whatsapp'
 import { buildTableReservationMessage } from '../utils/formMessages'
 import { submitToWeb3Forms } from '../utils/web3forms'
 
@@ -320,20 +319,6 @@ function TableReservationPage() {
                   </div>
 
                   <div className="mt-5 space-y-3">
-                    <a
-                      href={whatsappContactHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group flex items-center justify-between rounded-[16px] border border-[#ddd0bf] bg-white/72 px-4 py-3 transition-all duration-300 hover:border-[#d2bea6] hover:bg-white sm:rounded-[18px]"
-                    >
-                      <span className="text-[0.92rem] font-semibold text-[var(--color-text)] sm:text-[0.95rem]">
-                        WhatsApp
-                      </span>
-                      <span className="text-[1rem] text-[var(--color-brand-dark)] transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </a>
-
                     <a
                       href="tel:+4976217707722"
                       className="group flex items-center justify-between rounded-[16px] border border-[#ddd0bf] bg-white/72 px-4 py-3 transition-all duration-300 hover:border-[#d2bea6] hover:bg-white sm:rounded-[18px]"

@@ -1,12 +1,11 @@
 import { useState, type SubmitEvent } from 'react'
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
 import { FiClock, FiMapPin, FiPhone } from 'react-icons/fi'
 import { MdOutlineEmail } from 'react-icons/md'
 import Container from '../components/Container'
 import NazarBoncuguIcon from '../components/NazarBoncuguIcon'
 import { useTranslation } from '../i18n/useTranslation'
 import { usePageMeta } from '../hooks/usePageMeta'
-import { whatsappContactHref } from '../utils/whatsapp'
 import { buildContactMessage } from '../utils/formMessages'
 import { submitToWeb3Forms } from '../utils/web3forms'
 
@@ -44,15 +43,6 @@ function ContactPage() {
 
   const contactActions = [
     {
-      href: whatsappContactHref,
-      label: t.contactPage.actions.whatsapp,
-      icon: <FaWhatsapp />,
-      external: true,
-      buttonClassName:
-        'border-[#bddfc7] text-[#2f8f57] hover:border-[#9fcdad] hover:bg-[#fbfffc]',
-      iconClassName: 'bg-[#e8f7ee] text-[#2f8f57] group-hover:bg-[#dcf2e4]',
-    },
-    {
       href: 'https://instagram.com/c_a_y_s_',
       label: t.contactPage.actions.instagram,
       icon: <FaInstagram />,
@@ -62,7 +52,7 @@ function ContactPage() {
       iconClassName: 'bg-[#f5edf7] text-[#8b4d93] group-hover:bg-[#eddff0]',
     },
     {
-      href: 'mailto:hello@cays-cafe.com',
+      href: 'mailto:caysbrombach@hotmail.com',
       label: t.contactPage.actions.email,
       icon: <MdOutlineEmail />,
       external: false,
@@ -245,7 +235,7 @@ function ContactPage() {
             </div>
 
             <div className="lg:pt-[3.2rem]">
-              <div className="grid gap-3 sm:grid-cols-3 lg:flex lg:flex-col">
+              <div className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-col">
                 {contactActions.map((action) => (
                   <a
                     key={action.label}

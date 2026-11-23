@@ -35,7 +35,7 @@ function ImpressumPage() {
                   <span className="font-semibold text-[var(--color-text)]">
                     {t.impressumPage.operatorLabel}:
                   </span>{' '}
-                  {t.impressumPage.operatorPlaceholder}
+                  Cays
                 </p>
 
                 <p className="mt-2">
@@ -57,32 +57,8 @@ function ImpressumPage() {
                 <p className="mt-3">
                   {t.impressumPage.phoneLabel}: +49 7621 7707722
                   <br />
-                  {t.impressumPage.emailLabel}: hello@cays-cafe.com
+                  {t.impressumPage.emailLabel}: caysbrombach@hotmail.com
                 </p>
-              </div>
-
-              <div>
-                <p>
-                  <span className="font-semibold text-[var(--color-text)]">
-                    {t.impressumPage.vatLabel}:
-                  </span>{' '}
-                  {t.impressumPage.vatPlaceholder}
-                </p>
-
-                <p className="mt-2">
-                  <span className="font-semibold text-[var(--color-text)]">
-                    {t.impressumPage.registerLabel}:
-                  </span>{' '}
-                  {t.impressumPage.registerPlaceholder}
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-[0.78rem] font-semibold uppercase tracking-[0.1em] text-[var(--color-brand-dark)]/70">
-                  {t.impressumPage.responsibleHeading}
-                </h2>
-
-                <p className="mt-3">{t.impressumPage.responsiblePlaceholder}</p>
               </div>
 
               <div>
