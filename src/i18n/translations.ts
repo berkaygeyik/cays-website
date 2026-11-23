@@ -451,8 +451,8 @@ export const translations = {
 
       reservations: {
         title: 'Reservations',
-        main: 'DM or phone',
-        description: 'Reserve your table directly',
+        main: 'Form, DM or phone',
+        description: 'Book via the form or reach us directly',
         noteLabel: 'Good to know',
         note: 'Reservations are recommended on weekends.',
       },
@@ -1041,8 +1041,8 @@ export const translations = {
 
       reservations: {
         title: 'Reservierungen',
-        main: 'DM oder Telefon',
-        description: 'Reservieren Sie Ihren Tisch direkt',
+        main: 'Formular, DM oder Telefon',
+        description: 'Per Formular reservieren oder direkt melden',
         noteLabel: 'Gut zu wissen',
         note: 'Reservierungen werden am Wochenende empfohlen.',
       },
