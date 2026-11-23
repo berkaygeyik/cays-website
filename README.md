@@ -90,10 +90,23 @@ public, client-side key by design.
 
 ## Deployment
 
-Hosted on [Vercel](https://vercel.com/) (Vite preset, output `dist/`); every
-push to `main` deploys automatically. Large images should be committed as
-WebP and kept out of `public/` unless the site actually references them, since
-everything in `public/` ships to production.
+The site is a static build (`npm run build` → `dist/`) and runs on Vercel and on
+a regular web server from the same code. Both need one thing: every route that
+is not a real file (`/menu`, `/contact`, …) must be answered with `index.html`,
+otherwise a direct visit or a page refresh returns 404.
+
+- **Vercel:** `vercel.json` contains that rewrite. Every push to `main` deploys
+  automatically; other branches get a preview URL.
+- **Regular web server:** upload the *contents* of `dist/` to the web root.
+  - Apache: `public/.htaccess` is copied into `dist/` by the build and does the
+    rewrite (needs `mod_rewrite` and `AllowOverride FileInfo` or `All`).
+  - nginx: use `deploy/nginx.conf.example` as a starting point.
+- The site expects to live at the **root of its domain** (asset and image paths
+  start with `/`). Serving it from a sub-folder needs `base` set in
+  `vite.config.ts`.
+
+Large images should be committed as WebP and kept out of `public/` unless the
+site actually references them, since everything in `public/` ships to production.
 
 ## i18n
 

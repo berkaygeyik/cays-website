@@ -1,0 +1,35 @@
+# Example nginx server block for the built site.
+# Copy the contents of dist/ to the root below, adjust server_name and paths.
+# Add TLS (e.g. certbot) once the real domain points at the server.
+
+server {
+    listen 80;
+    server_name cays-cafe.com www.cays-cafe.com;
+
+    root /var/www/cays;
+    index index.html;
+
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml text/plain text/xml;
+
+    # Hashed build files never change.
+    location /assets/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Images keep their names, so no long-lived caching. Missing files are a real 404.
+    location /images/ {
+        try_files $uri =404;
+    }
+
+    # Always revalidate the HTML shell.
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    # Single-page app: every other route is served by index.html.
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
