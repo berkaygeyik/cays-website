@@ -4,7 +4,7 @@
 
 server {
     listen 80;
-    server_name cays-cafe.com www.cays-cafe.com;
+    server_name caysbrombach.com www.caysbrombach.com;
 
     root /var/www/cays;
     index index.html;

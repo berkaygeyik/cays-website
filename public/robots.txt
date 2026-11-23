@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cays-cafe.com/sitemap.xml
+Sitemap: https://caysbrombach.com/sitemap.xml

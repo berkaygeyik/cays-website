@@ -60,6 +60,7 @@ There is no test suite configured in this repo.
 | `/reservations/table` | Table reservation |
 | `/reservations/events` | Event reservation |
 | `/impressum` | Legal notice (German Impressumspflicht) |
+| `/datenschutz` | Privacy policy |
 | `*` | 404 |
 
 ## Project structure
@@ -73,7 +74,7 @@ src/
   data/         # hardcoded menu/category/image data
   i18n/         # translations + language context (en/de)
   hooks/        # shared hooks (scroll tracking, page <title>/meta, in-view)
-  utils/        # form submission (Web3Forms), German email formatting, WhatsApp link
+  utils/        # form submission (Web3Forms), German email formatting
   types/        # shared TypeScript types
 public/images/  # served as-is, referenced by plain string paths
 public/robots.txt, public/sitemap.xml  # SEO
@@ -117,20 +118,19 @@ persisted to `localStorage`. When adding UI copy, add the key to **both** the
 ## SEO
 
 `index.html` includes Open Graph/Twitter meta tags and `CafeOrCoffeeShop`
-JSON-LD structured data. These currently point at a placeholder domain
-(`cays-cafe.com`) — replace it once the real production domain is live, in
-`index.html`, `public/robots.txt`, and `public/sitemap.xml`.
+JSON-LD structured data, and `public/robots.txt` / `public/sitemap.xml` list
+the site. They all point at the production domain `https://caysbrombach.com`.
+If the domain ever changes, update it in those three files (and `server_name`
+in `deploy/nginx.conf.example`).
 
 ## Known TODOs
 
-- Replace the Web3Forms access key in `src/utils/web3forms.ts` with the
-  business owner's own key, and fill in the real WhatsApp number in
-  `src/utils/whatsapp.ts` (it is currently empty).
-- `hello@cays-cafe.com` (Contact page, Impressum) is a placeholder address.
-- `src/pages/ImpressumPage.tsx` has bracketed placeholders for the legal
-  operator name, VAT ID, and commercial register — required before the site
-  can legally go live in Germany.
-- The SEO placeholder domain (see above) needs to be swapped for the real one.
+- `src/pages/ImpressumPage.tsx` and the privacy policy (`privacyPage` in
+  `src/i18n/translations.ts`) are generic texts and have not had a legal
+  review. The Hosting section of the privacy policy still names Vercel; update
+  it when the site moves to its final web server.
+- Once the domain is live, restrict the Web3Forms access key to it in the
+  Web3Forms dashboard.
 
 ## License & content
 
