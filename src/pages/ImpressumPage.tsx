@@ -35,7 +35,7 @@ function ImpressumPage() {
                   <span className="font-semibold text-[var(--color-text)]">
                     {t.impressumPage.operatorLabel}:
                   </span>{' '}
-                  Cays
+                  Simar Çay (Cays)
                 </p>
 
                 <p className="mt-2">

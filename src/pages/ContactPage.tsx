@@ -121,7 +121,7 @@ function ContactPage() {
 
           <div>
             <a
-              href="https://maps.google.com/?q=Schopfheimer+Str.+1+79541+Lörrach"
+              href="https://www.google.com/maps/search/?api=1&query=Schopfheimer+Str.+1+79541+L%C3%B6rrach"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2 text-[0.74rem] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] sm:text-[0.78rem]"
@@ -371,27 +371,6 @@ function ContactPage() {
             ))}
           </div>
 
-          <div className="mt-10 overflow-hidden rounded-[26px] border border-[#e3d8ca] bg-white/65 shadow-[0_14px_34px_rgba(0,0,0,0.025)] sm:rounded-[34px]">
-            <div className="px-5 pt-5 sm:px-6 sm:pt-6 md:px-8 md:pt-8">
-              <div className="flex items-center gap-3">
-                <NazarBoncuguIcon className="h-[22px] w-[22px] sm:h-[25px] sm:w-[25px]" />
-
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-dark)]/58 sm:text-[0.72rem] sm:tracking-[0.18em]">
-                  {t.contactPage.map.eyebrow}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-5 h-[280px] w-full sm:mt-6 sm:h-[340px] md:h-[400px]">
-              <iframe
-                title={t.contactPage.map.title}
-                src="https://www.google.com/maps?q=Schopfheimer+Str.+1,+79541+L%C3%B6rrach,+Germany&output=embed"
-                className="h-full w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
         </Container>
       </section>
     </div>

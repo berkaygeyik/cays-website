@@ -216,10 +216,6 @@ export const translations = {
         },
       },
 
-      map: {
-        eyebrow: 'Find Us',
-        title: 'Cays location on Google Maps',
-      },
     },
 
     eventReservationPage: {
@@ -552,44 +548,37 @@ export const translations = {
         {
           heading: "1. Controller",
           paragraphs: [
-            "The controller responsible for data processing on this website is: Cays, Schopfheimer Str. 1, 79541 Lörrach-Brombach, Germany. Phone: +49 7621 7707722. Email: caysbrombach@hotmail.com.",
+            "The controller responsible for data processing on this website is: Simar Çay (Cays), Schopfheimer Str. 1, 79541 Lörrach-Brombach, Germany. Phone: +49 7621 7707722. Email: caysbrombach@hotmail.com.",
           ],
         },
         {
           heading: "2. Hosting and server log files",
           paragraphs: [
             "This website is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. When you visit the website, technically necessary data such as your IP address, date and time of access, the page requested and your browser type is processed in server log files.",
-            "The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in a secure and stable operation of the website). Where data is transferred to the USA, this is based on safeguards recognised by the European Commission, such as standard contractual clauses or an adequacy decision.",
+            "The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in a secure and stable operation of the website). Vercel is certified under the EU-US Data Privacy Framework, which the European Commission recognises as providing an adequate level of data protection for transfers to the USA.",
           ],
         },
         {
           heading: "3. Contact and reservation forms",
           paragraphs: [
             "If you send us a message or a table or event reservation through the forms on this website, we process the data you enter, such as your name, email address, phone number, date, number of guests and your message, in order to answer your enquiry or handle your reservation.",
-            "Form submissions are forwarded to us by email through the service Web3Forms (web3forms.com). The legal basis is Art. 6 (1) (b) GDPR where your enquiry relates to a reservation or contract, and otherwise Art. 6 (1) (f) GDPR. We delete your data once it is no longer needed for this purpose, unless statutory retention obligations apply.",
+            "Form submissions are forwarded to us by email through the service Web3Forms (web3forms.com), which is operated by Web3Creative from India. Where data is transferred to countries outside the EU, this is based on standard contractual clauses. According to the provider, form submissions are stored on its servers for up to three years. The legal basis is Art. 6 (1) (b) GDPR where your enquiry relates to a reservation or contract, and otherwise Art. 6 (1) (f) GDPR. We delete your data once it is no longer needed for this purpose, unless statutory retention obligations apply.",
           ],
         },
         {
-          heading: "4. Google Maps",
-          paragraphs: [
-            "The contact page contains an embedded map from Google Maps, provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. When the map is loaded, your browser connects to Google servers and your IP address is transmitted to Google. This may also involve a transfer of data to the USA.",
-            "The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in showing our location).",
-          ],
-        },
-        {
-          heading: "5. Local storage and cookies",
+          heading: "4. Local storage and cookies",
           paragraphs: [
             "This website stores your language choice in your browser's local storage (key: cays-language) so that it is remembered on your next visit. This information stays on your device. We do not use cookies for tracking or analytics.",
           ],
         },
         {
-          heading: "6. Links to other websites",
+          heading: "5. Links to other websites",
           paragraphs: [
-            "This website contains links to Instagram (Meta Platforms Ireland Limited) and to Google Maps. These are plain links: data is only transmitted to these providers once you click on them.",
+            "This website contains links to Instagram (Meta Platforms Ireland Limited) and a link to directions on Google Maps. These are plain links: data is only transmitted to these providers once you click on them.",
           ],
         },
         {
-          heading: "7. Your rights",
+          heading: "6. Your rights",
           paragraphs: [
             "You have the right to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing (Art. 21). You can withdraw any consent you have given at any time with effect for the future.",
             "To exercise your rights, contact us at caysbrombach@hotmail.com. You also have the right to lodge a complaint with a supervisory authority. The authority responsible for us is the Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart, Germany.",
@@ -817,10 +806,6 @@ export const translations = {
         },
       },
 
-      map: {
-        eyebrow: 'Standort',
-        title: 'Cays Standort auf Google Maps',
-      },
     },
 
     eventReservationPage: {
@@ -1153,44 +1138,37 @@ export const translations = {
         {
           heading: "1. Verantwortlicher",
           paragraphs: [
-            "Verantwortlich für die Datenverarbeitung auf dieser Website ist: Cays, Schopfheimer Str. 1, 79541 Lörrach-Brombach, Deutschland. Telefon: +49 7621 7707722. E-Mail: caysbrombach@hotmail.com.",
+            "Verantwortlich für die Datenverarbeitung auf dieser Website ist: Simar Çay (Cays), Schopfheimer Str. 1, 79541 Lörrach-Brombach, Deutschland. Telefon: +49 7621 7707722. E-Mail: caysbrombach@hotmail.com.",
           ],
         },
         {
           heading: "2. Hosting und Server-Logfiles",
           paragraphs: [
             "Diese Website wird bei Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA, gehostet. Beim Aufruf der Website werden technisch notwendige Daten wie Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite und Ihr Browsertyp in Server-Logfiles verarbeitet.",
-            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb der Website). Soweit Daten in die USA übermittelt werden, erfolgt dies auf Grundlage der von der Europäischen Kommission anerkannten Garantien, etwa Standardvertragsklauseln oder eines Angemessenheitsbeschlusses.",
+            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb der Website). Vercel ist unter dem EU-US Data Privacy Framework zertifiziert, das die Europäische Kommission als angemessenes Datenschutzniveau für Übermittlungen in die USA anerkennt.",
           ],
         },
         {
           heading: "3. Kontakt- und Reservierungsformulare",
           paragraphs: [
             "Wenn Sie uns über die Formulare auf dieser Website eine Nachricht, eine Tisch- oder eine Eventreservierung senden, verarbeiten wir die von Ihnen eingegebenen Daten, etwa Name, E-Mail-Adresse, Telefonnummer, Datum, Personenzahl und Ihre Nachricht, um Ihre Anfrage zu beantworten oder Ihre Reservierung zu bearbeiten.",
-            "Die Formularangaben werden über den Dienst Web3Forms (web3forms.com) per E-Mail an uns weitergeleitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage eine Reservierung oder einen Vertrag betrifft, ansonsten Art. 6 Abs. 1 lit. f DSGVO. Wir löschen Ihre Daten, sobald sie für diesen Zweck nicht mehr erforderlich sind, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
+            "Die Formularangaben werden über den Dienst Web3Forms (web3forms.com), der von Web3Creative aus Indien betrieben wird, per E-Mail an uns weitergeleitet. Soweit Daten in Länder außerhalb der EU übermittelt werden, erfolgt dies auf Grundlage von Standardvertragsklauseln. Nach Angaben des Anbieters werden Formulareinträge bis zu drei Jahre auf dessen Servern gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage eine Reservierung oder einen Vertrag betrifft, ansonsten Art. 6 Abs. 1 lit. f DSGVO. Wir löschen Ihre Daten, sobald sie für diesen Zweck nicht mehr erforderlich sind, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
           ],
         },
         {
-          heading: "4. Google Maps",
-          paragraphs: [
-            "Auf der Kontaktseite ist eine Karte von Google Maps eingebunden, angeboten von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Laden der Karte baut Ihr Browser eine Verbindung zu Servern von Google auf, und Ihre IP-Adresse wird an Google übermittelt. Dabei kann es auch zu einer Datenübermittlung in die USA kommen.",
-            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Darstellung unseres Standorts).",
-          ],
-        },
-        {
-          heading: "5. Lokaler Speicher und Cookies",
+          heading: "4. Lokaler Speicher und Cookies",
           paragraphs: [
             "Diese Website speichert Ihre Sprachauswahl im lokalen Speicher Ihres Browsers (Schlüssel: cays-language), damit sie bei Ihrem nächsten Besuch erhalten bleibt. Diese Information verbleibt auf Ihrem Gerät. Wir setzen keine Cookies zu Tracking- oder Analysezwecken ein.",
           ],
         },
         {
-          heading: "6. Links zu anderen Websites",
+          heading: "5. Links zu anderen Websites",
           paragraphs: [
-            "Diese Website enthält Links zu Instagram (Meta Platforms Ireland Limited) und zu Google Maps. Es handelt sich um einfache Links: Daten werden erst an diese Anbieter übermittelt, wenn Sie sie anklicken.",
+            "Diese Website enthält Links zu Instagram (Meta Platforms Ireland Limited) sowie einen Link zur Wegbeschreibung bei Google Maps. Es handelt sich um einfache Links: Daten werden erst an diese Anbieter übermittelt, wenn Sie sie anklicken.",
           ],
         },
         {
-          heading: "7. Ihre Rechte",
+          heading: "6. Ihre Rechte",
           paragraphs: [
             "Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie das Recht, der Verarbeitung zu widersprechen (Art. 21). Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen.",
             "Zur Ausübung Ihrer Rechte wenden Sie sich an caysbrombach@hotmail.com. Außerdem haben Sie das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Für uns zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart.",
