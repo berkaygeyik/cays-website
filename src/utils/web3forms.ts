@@ -1,6 +1,6 @@
 import type { FormField } from './formMessages'
 
-const WEB3FORMS_ACCESS_KEY = '977323a5-db96-4b25-bd5f-4a0a73f1aade'
+const WEB3FORMS_ACCESS_KEY = 'efbb3f7d-3865-481e-b4c3-8d9099ec8956'
 
 type SubmitPayload = {
   subject: string
