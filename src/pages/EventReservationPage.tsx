@@ -100,7 +100,7 @@ function EventReservationPage() {
                   <div key={tag} className="flex items-center gap-x-6">
                     <span>{tag}</span>
                     {index !== heroTags.length - 1 && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-gold)]/70" />
+                      <span className="hidden h-1.5 w-1.5 rounded-full bg-[var(--color-accent-gold)]/70 sm:block" />
                     )}
                   </div>
                 ))}

@@ -46,7 +46,7 @@ function EventsPreviewSection() {
         <div className="relative flex min-h-[40.5rem] items-center justify-center sm:min-h-[42.5rem] md:min-h-[41rem] lg:min-h-[43rem]">
           <div
             className="
-              flex aspect-square w-[95vw] max-w-[40.5rem] flex-col justify-center rounded-full
+              flex w-[95vw] max-w-[40.5rem] flex-col justify-center rounded-[2.5rem] sm:aspect-square sm:rounded-full
               border border-[#e2d8cc] bg-[#f4efe9]/94 px-6 py-8 text-center
               text-[#2a201a] shadow-[0_28px_70px_rgba(0,0,0,0.3),_0_2px_0_rgba(255,255,255,0.18)_inset]
               backdrop-blur-xl sm:w-[89vw] sm:px-10 sm:py-10 md:w-[43rem] md:max-w-[43rem] md:px-12 md:py-12

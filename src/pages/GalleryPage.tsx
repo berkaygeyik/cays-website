@@ -240,9 +240,9 @@ function GalleryPage() {
 
             <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3 text-[0.78rem] font-medium tracking-[0.02em] text-black/48 sm:gap-x-6 sm:text-[0.82rem]">
               <span>{t.galleryPage.tags.interiors}</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-gold)]/70" />
+              <span className="hidden h-1.5 w-1.5 rounded-full bg-[var(--color-accent-gold)]/70 sm:block" />
               <span>{t.galleryPage.tags.breakfastDesserts}</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-gold)]/70" />
+              <span className="hidden h-1.5 w-1.5 rounded-full bg-[var(--color-accent-gold)]/70 sm:block" />
               <span>{t.galleryPage.tags.coffeeMoments}</span>
             </div>
           </div>
